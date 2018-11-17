@@ -1,3 +1,6 @@
+#alert{
+  background-color: red;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -35,6 +38,7 @@ button:hover {
   width: 400px;
   margin: auto;
 }
+
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
@@ -45,10 +49,11 @@ img.avatar {
     border-radius: 50%;
 }
 
-.container {
-    padding: 16px;
+.dcontainer {
+    padding: 50px;
     overflow: auto;
 }
+
 
 span.psw {
     float: right;
@@ -60,8 +65,5 @@ span.psw {
     span.psw {
        display: block;
        float: none;
-    }
-    .cancelbtn {
-       width: 100%;
     }
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="master.css">
+<script src="script.js"></script>
+<style>
+</style>
+</head>
+<body>
+<form id="loginform" action="login.php">
+  <h2>DARS Login</h2>
+  <div class="dcontainer" style="padding:20px;">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+    <div id="alert" hidden>
+      <strong>Wrong Information!</strong>
+    </div>
+    <button type="submit" >Login</button>
+    <label>
+      <input type="checkbox" name="remember"> Remember me
+    </label>
+  </div>
+  <div class="dcontainer" style="background-color:#f1f1f1">
+    <span class="psw"><a href="#">Forgot password?</a></span>
+  </div>
+</form>
+</body>
+</html>
