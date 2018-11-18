@@ -1,6 +1,4 @@
-#alert{
-  background-color: red;
-}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -50,7 +48,7 @@ img.avatar {
 }
 
 .dcontainer {
-    padding: 50px;
+    padding: 15px;
     overflow: auto;
 }
 
