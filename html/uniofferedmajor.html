@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="./js/uniofferedmajor.js"></script>
+  </head>
+  <body>
+    <h1 class="w3-container">Major Offered</h1>
+    <div class="w3-panel w3-indigo w3-padding w3-card-4">
+      <form class="w3-container w3-padding">
+        <p>University: </p>
+        <select id="university" class="w3-padding" onchange="updateMajor(),updateSchoolFromTbl() ">
+        </select>
+
+        <p>School: </p>
+        <select id="school" class="w3-padding" >
+        </select>
+
+        <p>Major: </p>
+        <select id="major" class="w3-padding" >
+        </select>
+
+
+        </form>
+        <form class="w3-container w3-padding">
+          <button class="w3-button w3-light-green" type="button" onclick="pushData()">Push</button>
+          <button class="w3-button w3-light-green" type="button" onclick="retriveData()">Load Table</button>
+          <input type="checkbox" id='id'> Shorten Names in Table
+      </form>
+
+
+    </div>
+    <div id="table-container" class="w3-panel w3-padding w3-card-4" hidden>
+      <table id="table" class="w3-table w3-striped w3-bordered" cellspacing="10">
+
+      </table>
+    </div>
+  </body>
+</html>

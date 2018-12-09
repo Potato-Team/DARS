@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="./js/unidataview.js"></script>
+  </head>
+  <body>
+    <h1 class="w3-container">Data View</h1>
+    <div class="w3-panel w3-indigo w3-padding w3-card-4">
+      <form class="w3-container w3-padding">
+        <p>University: </p>
+        <select id="university" class="w3-padding" name="uni">
+          <option value="">North South University</option>
+          <option value="">Independent University Bangladesh</option>
+          <option value="">Brac University</option>
+          <option value="">East West University</option>
+        </select>
+
+        <p>Year: </p>
+        <select id="year" class="w3-padding" name="yer">
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+          <option value="2015">2015</option>
+          <option value="2014">2014</option>
+          <option value="2013">2013</option>
+          <option value="2012">2012</option>
+          <option value="2011">2011</option>
+          <option value="2010">2010</option>
+          <option value="2009">2009</option>
+          <option value="2008">2008</option>
+          <option value="2007">2007</option>
+          <option value="2006">2006</option>
+          <option value="2005">2005</option>
+        </select>
+
+        <p>Semester: </p>
+        <select id="semester" class="w3-padding" name="sem">
+          <option value="">Summer</option>
+          <option value="">Spring</option>
+          <option value="">Autumn</option>
+          <option value="">Fall</option>
+        </select>
+
+        <p class="w3-margin-top">
+          <button class="w3-button w3-light-green" type="button" onclick="retriveData()">Submit</button>
+        </p>
+      </form>
+
+
+    </div>
+    <div id="table-container" class="w3-panel w3-padding w3-card-4" hidden>
+      <table id="table" class="w3-table w3-striped w3-bordered" cellspacing="10">
+
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="./js/ugcentry.js"></script>
+  </head>
+  <body>
+    <h1 class="w3-container">UGC Report Entry</h1>
+    <div class="w3-panel w3-sand w3-padding w3-card-4">
+      <form class="w3-container w3-padding">
+        <p>University: </p>
+        <select id="university" class="w3-padding" name="uni" onchange="updateMajor()">
+          <option value="nsu">North South University</option>
+          <option value="iub">Independent University Bangladesh</option>
+          <option value="bracu">Brac University</option>
+          <option value="ewu">East West University</option>
+        </select>
+
+        <p>Year: </p>
+        <input class="w3-container w3-padding" type="text" id="year" value="<?php echo date("Y"); ?>" >
+        <p>Inserted School List: </p>
+        <select id="school" class="w3-padding" onchange="updateMajor()">
+        </select>
+      </form>
+      <form class="w3-container w3-padding">
+        <a>Key: </a>
+        <a style="padding-left: 15%;">School Name: </a><br>
+        <input class="w3-container w3-padding" type="text" id="key" size="2">
+        <input class="w3-container w3-padding" type="text" id="schoolname" size="16">
+      </form>
+      </form>
+      <form class="w3-container w3-padding">
+        <button class="w3-button w3-green" type="button" onclick="addToOption()">Add School</button>
+        <button class="w3-button w3-green" type="button" onclick="submitData()">Submit</button>
+      </form>
+    </div>
+
+    <div id="table-container" class="w3-panel w3-padding w3-card-4" style="min-height:200px;" >
+      <table id="table" class="w3-table w3-striped w3-bordered" cellspacing="10">
+      </table>
+    </div>
+
+  </body>
+</html>

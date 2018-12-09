@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="./js/unientry.js"></script>
+  </head>
+  <body>
+    <h1 class="w3-container">Data Entry</h1>
+    <div class="w3-panel w3-sand w3-padding w3-card-4">
+      <form class="w3-container w3-padding">
+        <p>University: </p>
+        <select id="university" class="w3-padding" name="uni" onchange="updateMajor()">
+          <option value="nsu">North South University</option>
+          <option value="iub">Independent University Bangladesh</option>
+          <option value="bracu">Brac University</option>
+          <option value="ewu">East West University</option>
+        </select>
+
+        <p>Year: </p>
+        <input class="w3-container w3-padding" type="text" id="year" name="year" value="<?php echo date("Y"); ?>" onchange="updateSemester()">
+        <script type="text/javascript">
+        function updateSemester(){
+          var year = document.getElementById('year').value;
+
+          $.ajax(
+           { url: "./sql/retriveUniSemester.php",
+           type:"GET",
+             dataType:"text",
+             data: { year: year },
+             success: function(data) {
+               console.log(data);
+               document.getElementById('semester').innerHTML = data;
+               document.getElementById("semester").selectedIndex = -1;
+             }
+           });
+        }
+        updateSemester();
+        </script>
+        <p>Semester: </p>
+        <select id="semester" class="w3-padding" name="semester">
+          <option value="Summer">Summer</option>
+          <option value="Spring">Spring</option>
+          <option value="Autumn">Autumn</option>
+          <option value="Fall">Fall</option>
+        </select>
+
+        <p>Major: </p>
+        <select id="major" class="w3-padding" name="major">
+          <option value="Summer">Summer</option>
+          <option value="Spring">Spring</option>
+          <option value="Autumn">Autumn</option>
+          <option value="Fall">Fall</option>
+        </select>
+
+        <p>Student ID: </p>
+        <input class="w3-container w3-padding" type="text" id="student" name="student">
+
+      </form>
+      <form class="w3-container w3-padding">
+        <button class="w3-button w3-green" type="button" name="increment" onclick="clickincrement()">+</button>
+        <button class="w3-button w3-green" type="button" name="submit" onclick="addToTable()">Add</button>
+        <input class="w3-border" type="number" id="loop" style="width:50px" value=0>
+        <button class="w3-button w3-green" type="button" name="submit" onclick="clearField()">Clear</button>
+        <input type="checkbox" id="autoincrement"> Auto Increment
+      </form>
+
+      <form class="w3-container w3-padding">
+        <button class="w3-button w3-green" type="button"  onclick="clearTable()">Clear Table</button>
+        <button class="w3-button w3-green" type="button" onclick="deleteSelected()">Delete Selected</button>
+        <button class="w3-button w3-green" type="button" onclick="pushToSql()">Push</button>
+      </form>
+    </div>
+
+    <div id="table-container" class="w3-panel w3-padding w3-card-4" style="min-height: 200px; " hidden>
+      <table id="table" class="w3-table w3-striped w3-bordered" cellspacing="10">
+        <tr>
+          <th ><input type="checkbox" id="all" value=0 onclick="allCheck()"></th>
+          <th >University</th>
+          <th >Year</th>
+          <th >Semester</th>
+          <th >Major</th>
+          <th >StudentID</th>
+        </tr>
+      </table>
+    </div>
+
+  </body>
+</html>

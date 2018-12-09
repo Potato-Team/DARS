@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="./3rdparty/Chart.min.js"></script>
+    <script type="text/javascript" src="./3rdparty/chartjs-plugin-datalabels.js"></script>
+    <script type="text/javascript" src="./js/majorwise.js"></script>
+  </head>
+  <body>
+    <h1 class="w3-container">Major Wise Distrubution</h1>
+
+    <div class="w3-panel w3-sand w3-padding w3-card-4">
+      <form class="w3-container w3-padding">
+        <p>University: </p>
+        <select id="university" class="w3-padding" onchange="updateSchool(),updateYears()">
+        </select>
+
+        <p>Year: </p>
+        [ <select id="yearfrom" class="w3-padding" name="yearfrom">
+        </select> <=>
+        <select id="yearto" class="w3-padding" name="yearto">
+        </select> ]
+
+        <p>School: </p>
+        <select id="school" class="w3-padding" name="school">
+        </select>
+      </form>
+    </div>
+    <div id="button-container" class="w3-panel w3-padding w3-card-4 w3-col" >
+      <button class="w3-button w3-light-green" type="button" name="button" onclick="retriveTableData()">Table View</button>
+      <button class="w3-button w3-light-green" type="button" name="button" onclick="generateStackedArea()">Stacked Area</button>
+      <button class="w3-button w3-light-green" type="button" name="button" onclick="generateGroupedBar()">Grouped Bar</button>
+      <button class="w3-button w3-light-green" type="button" name="button" onclick="generatePie()">Pie Chart</button>
+    </div>
+
+    <div id="canvas-container" hidden>
+    <!-- <div class="w3-cell-row w3-panel w3-padding w3-card-4 w3-col">
+      <div class="w3-container w3-cell w3-mobile" style="width:30%">
+    </div> -->
+      <div id="chart-container" class="w3-container w3-cell w3-mobile w3-panel w3-padding w3-card-4 w3-col" >
+      </div>
+      <!-- <div class="w3-container w3-cell w3-mobile" style="width:30%">
+      </div>
+    </div> -->
+  </div>
+
+  </body>
+</html>

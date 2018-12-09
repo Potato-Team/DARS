@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./3rdparty/w3.js"></script>
+<script src= "./3rdparty/jquery.js"></script>
+<link rel="stylesheet" href="./3rdparty/jquery-ui.css">
+<link rel="stylesheet" href="./3rdparty/w3.css">
+<link rel="stylesheet" href="./3rdparty/w3-colors-flat.css">
+</head>
+<body style="width:70%;margin:auto;">
+
+<div class="w3-bar w3-flat-wet-asphalt w3-card-4">
+
+  <form  action="dashboard.php" method="GET">
+    <button class="w3-bar-item w3-button" type="submit" name="page" value="home">Home</button>
+  </form>
+
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">University</button>
+    <div class="w3-dropdown-content w3-bar-block w3-border">
+      <form  action="dashboard.php" method="GET">
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="unientry">Data Entry</button>
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="unidataview">Data View</button>
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="uniofferedmajor">Major Entry</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">University Analysis</button>
+    <div class="w3-dropdown-content w3-bar-block w3-border">
+      <form  action="dashboard.php" method="GET">
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="yearwise">Year Wise</button>
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="schoolwise">School Wise</button>
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="majorwise">Major Wise</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">UGC</button>
+    <div class="w3-dropdown-content w3-bar-block w3-border">
+      <form  action="dashboard.php" method="GET">
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="ugcentry">Data Entry</button>
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="ugcdataview">Data View</button>
+        <button class="w3-bar-item w3-button" type="submit" name="page" value="ugcchart">Chart</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="w3-dropdown-hover w3-right">
+    <button class="w3-button">Rafi Khan</button>
+    <div class="w3-dropdown-content w3-bar-block w3-border">
+      <form  action="dashboard.php" method="GET">
+        <button class="w3-bar-item w3-button" type="submit" name="user" value="profile">Profile</button>
+        <button class="w3-bar-item w3-button" type="submit" name="user" value="setting">Setting</button>
+        <button class="w3-bar-item w3-button" type="submit" name="logout" value="true">Logout</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+</body>
+
+<style media="screen">
+  @media only screen and (min-width: ) {
+    body {
+        width:70%;
+        margin:auto;
+    }
+  }
+</style>
+
+</html>
