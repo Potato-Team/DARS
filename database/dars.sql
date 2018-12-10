@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2018 at 01:53 PM
+-- Generation Time: Dec 10, 2018 at 03:32 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `dars`
 --
-CREATE DATABASE IF NOT EXISTS `dars` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `dars`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +28,6 @@ USE `dars`;
 -- Table structure for table `admission`
 --
 
-DROP TABLE IF EXISTS `admission`;
 CREATE TABLE `admission` (
   `cadmission_id` varchar(255) NOT NULL,
   `dadmission_year` year(4) NOT NULL,
@@ -45,9 +42,6 @@ INSERT INTO `admission` (`cadmission_id`, `dadmission_year`, `csemester_id`) VAL
 ('autumn2016', 2016, 'autumn'),
 ('autumn2017', 2017, 'autumn'),
 ('autumn2018', 2018, 'autumn'),
-('fall2016', 2016, 'fall'),
-('fall2017', 2017, 'fall'),
-('fall2018', 2018, 'fall'),
 ('spring2016', 2016, 'spring'),
 ('spring2017', 2017, 'spring'),
 ('spring2018', 2018, 'spring'),
@@ -61,7 +55,6 @@ INSERT INTO `admission` (`cadmission_id`, `dadmission_year`, `csemester_id`) VAL
 -- Table structure for table `major`
 --
 
-DROP TABLE IF EXISTS `major`;
 CREATE TABLE `major` (
   `cmajor_id` varchar(255) NOT NULL,
   `cmajor_name` varchar(255) DEFAULT NULL
@@ -105,7 +98,6 @@ INSERT INTO `major` (`cmajor_id`, `cmajor_name`) VALUES
 -- Table structure for table `offeredmajor`
 --
 
-DROP TABLE IF EXISTS `offeredmajor`;
 CREATE TABLE `offeredmajor` (
   `cmajor_id` varchar(255) NOT NULL,
   `cschool_id` varchar(255) NOT NULL,
@@ -119,6 +111,7 @@ CREATE TABLE `offeredmajor` (
 INSERT INTO `offeredmajor` (`cmajor_id`, `cschool_id`, `cuni_id`) VALUES
 ('B. Arch', 'SEPS', 'nsu'),
 ('BA ENG', 'SBE', 'nsu'),
+('BA SOC', 'SHSS', 'nsu'),
 ('BBA General', 'SBE', 'nsu'),
 ('BBA_ACT', 'SBE', 'nsu'),
 ('BBA_ECO', 'SBE', 'nsu'),
@@ -145,7 +138,6 @@ INSERT INTO `offeredmajor` (`cmajor_id`, `cschool_id`, `cuni_id`) VALUES
 -- Table structure for table `school`
 --
 
-DROP TABLE IF EXISTS `school`;
 CREATE TABLE `school` (
   `cschool_id` varchar(255) NOT NULL,
   `csch_name` varchar(255) DEFAULT NULL,
@@ -174,7 +166,6 @@ INSERT INTO `school` (`cschool_id`, `csch_name`, `cuni_id`) VALUES
 -- Table structure for table `semester`
 --
 
-DROP TABLE IF EXISTS `semester`;
 CREATE TABLE `semester` (
   `csemester_id` varchar(255) NOT NULL,
   `csemester_name` varchar(255) NOT NULL
@@ -186,7 +177,6 @@ CREATE TABLE `semester` (
 
 INSERT INTO `semester` (`csemester_id`, `csemester_name`) VALUES
 ('autumn', 'Autumn'),
-('fall', 'Fall'),
 ('spring', 'Spring'),
 ('summer', 'Summer');
 
@@ -196,7 +186,6 @@ INSERT INTO `semester` (`csemester_id`, `csemester_name`) VALUES
 -- Table structure for table `student`
 --
 
-DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `cstu_id` varchar(255) NOT NULL,
   `cmajor_id` varchar(255) DEFAULT NULL,
@@ -272,6 +261,522 @@ INSERT INTO `student` (`cstu_id`, `cmajor_id`, `cuni_id`, `cadmission_id`) VALUE
 ('1086', 'B. Arch', 'nsu', 'summer2018'),
 ('1087', 'B. Arch', 'nsu', 'summer2018'),
 ('1089', 'BS CSE', 'nsu', 'summer2018'),
+('1700000', 'B. Arch', 'nsu', 'autumn2017'),
+('1700001', 'B. Arch', 'nsu', 'autumn2017'),
+('1700002', 'B. Arch', 'nsu', 'autumn2017'),
+('1700003', 'B. Arch', 'nsu', 'autumn2017'),
+('1700004', 'B. Arch', 'nsu', 'autumn2017'),
+('1700005', 'B. Arch', 'nsu', 'autumn2017'),
+('1700006', 'B. Arch', 'nsu', 'autumn2017'),
+('1700007', 'B. Arch', 'nsu', 'autumn2017'),
+('1700008', 'B. Arch', 'nsu', 'autumn2017'),
+('1700009', 'B. Arch', 'nsu', 'autumn2017'),
+('1700010', 'B. Arch', 'nsu', 'autumn2017'),
+('1700011', 'B. Arch', 'nsu', 'autumn2017'),
+('1700012', 'B. Arch', 'nsu', 'autumn2017'),
+('1700013', 'B. Arch', 'nsu', 'autumn2017'),
+('1700014', 'B. Arch', 'nsu', 'autumn2017'),
+('1700015', 'BA ENG', 'nsu', 'autumn2017'),
+('1700016', 'BA ENG', 'nsu', 'autumn2017'),
+('1700017', 'BA ENG', 'nsu', 'autumn2017'),
+('1700018', 'BA ENG', 'nsu', 'autumn2017'),
+('1700019', 'BA ENG', 'nsu', 'autumn2017'),
+('1700020', 'BA ENG', 'nsu', 'autumn2017'),
+('1700021', 'BA ENG', 'nsu', 'autumn2017'),
+('1700022', 'BA ENG', 'nsu', 'autumn2017'),
+('1700023', 'BA ENG', 'nsu', 'autumn2017'),
+('1700024', 'BA ENG', 'nsu', 'autumn2017'),
+('1700025', 'BA ENG', 'nsu', 'autumn2017'),
+('1700026', 'BA ENG', 'nsu', 'autumn2017'),
+('1700027', 'BBA General', 'nsu', 'autumn2017'),
+('1700028', 'BBA General', 'nsu', 'autumn2017'),
+('1700029', 'BBA General', 'nsu', 'autumn2017'),
+('1700030', 'BBA General', 'nsu', 'autumn2017'),
+('1700031', 'BBA General', 'nsu', 'autumn2017'),
+('1700032', 'BBA General', 'nsu', 'autumn2017'),
+('1700033', 'BBA General', 'nsu', 'autumn2017'),
+('1700034', 'BBA General', 'nsu', 'autumn2017'),
+('1700035', 'BBA General', 'nsu', 'autumn2017'),
+('1700036', 'BBA General', 'nsu', 'autumn2017'),
+('1700037', 'BBA General', 'nsu', 'autumn2017'),
+('1700038', 'BBA General', 'nsu', 'autumn2017'),
+('1700039', 'BBA General', 'nsu', 'autumn2017'),
+('1700040', 'BBA General', 'nsu', 'autumn2017'),
+('1700041', 'BBA General', 'nsu', 'autumn2017'),
+('1700042', 'BBA General', 'nsu', 'autumn2017'),
+('1700043', 'BBA General', 'nsu', 'autumn2017'),
+('1700044', 'BBA General', 'nsu', 'autumn2017'),
+('1700045', 'BBA General', 'nsu', 'autumn2017'),
+('1700046', 'BBA General', 'nsu', 'autumn2017'),
+('1700047', 'BBA General', 'nsu', 'autumn2017'),
+('1700048', 'BBA General', 'nsu', 'autumn2017'),
+('1700049', 'BBA General', 'nsu', 'autumn2017'),
+('1700050', 'BBA General', 'nsu', 'autumn2017'),
+('1700051', 'BBA General', 'nsu', 'autumn2017'),
+('1700052', 'BBA General', 'nsu', 'autumn2017'),
+('1700053', 'BBA General', 'nsu', 'autumn2017'),
+('1700054', 'BBA General', 'nsu', 'autumn2017'),
+('1700055', 'BBA General', 'nsu', 'autumn2017'),
+('1700056', 'BBA General', 'nsu', 'autumn2017'),
+('1700057', 'BBA General', 'nsu', 'autumn2017'),
+('1700058', 'BBA General', 'nsu', 'autumn2017'),
+('1700059', 'BBA General', 'nsu', 'autumn2017'),
+('1700060', 'BBA General', 'nsu', 'autumn2017'),
+('1700061', 'BBA General', 'nsu', 'autumn2017'),
+('1700062', 'BBA General', 'nsu', 'autumn2017'),
+('1700063', 'BBA General', 'nsu', 'autumn2017'),
+('1700064', 'BBA General', 'nsu', 'autumn2017'),
+('1700065', 'BBA General', 'nsu', 'autumn2017'),
+('1700066', 'BBA General', 'nsu', 'autumn2017'),
+('1700067', 'BBA General', 'nsu', 'autumn2017'),
+('1700068', 'BBA General', 'nsu', 'autumn2017'),
+('1700069', 'BBA General', 'nsu', 'autumn2017'),
+('1700070', 'BBA General', 'nsu', 'autumn2017'),
+('1700071', 'BBA General', 'nsu', 'autumn2017'),
+('1700072', 'BBA General', 'nsu', 'autumn2017'),
+('1700073', 'BBA General', 'nsu', 'autumn2017'),
+('1700074', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700075', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700076', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700077', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700078', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700079', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700080', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700081', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700082', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700083', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700084', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700085', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700086', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700087', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700088', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700089', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700090', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700091', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700092', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700093', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700094', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700095', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700096', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700097', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700098', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700099', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700100', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700101', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700102', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700103', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700104', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700105', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700106', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700107', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700108', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700109', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700110', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700111', 'BBA_ACT', 'nsu', 'autumn2017'),
+('1700112', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700113', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700114', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700115', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700116', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700117', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700118', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700119', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700120', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700121', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700122', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700123', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700124', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700125', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700126', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700127', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700128', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700129', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700130', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700131', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700132', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700133', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700134', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700135', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700136', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700137', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700138', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700139', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700140', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700141', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700142', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700143', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700144', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700145', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700146', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700147', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700148', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700149', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700150', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700151', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700152', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700153', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700154', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700155', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700156', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700157', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700158', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700159', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700160', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700161', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700162', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700163', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700164', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700165', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700166', 'BBA_ECO', 'nsu', 'autumn2017'),
+('1700167', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700168', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700169', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700170', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700171', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700172', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700173', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700174', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700175', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700176', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700177', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700178', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700179', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700180', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700181', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700182', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700183', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700184', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700185', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700186', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700187', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700188', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700189', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700190', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700191', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700192', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700193', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700194', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700195', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700196', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700197', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700198', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700199', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700200', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700201', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700202', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700203', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700204', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700205', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700206', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700207', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700208', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700209', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700210', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700211', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700212', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700213', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700214', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700215', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700216', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700217', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700218', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700219', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700220', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700221', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700222', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700223', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700224', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700225', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700226', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700227', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700228', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700229', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700230', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700231', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700232', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700233', 'BBA_HRM', 'nsu', 'autumn2017'),
+('1700234', 'BC CS', 'nsu', 'autumn2017'),
+('1700235', 'BC CS', 'nsu', 'autumn2017'),
+('1700236', 'BC CS', 'nsu', 'autumn2017'),
+('1700237', 'BC CS', 'nsu', 'autumn2017'),
+('1700238', 'BC CS', 'nsu', 'autumn2017'),
+('1700239', 'BC CS', 'nsu', 'autumn2017'),
+('1700240', 'BC CS', 'nsu', 'autumn2017'),
+('1700241', 'BC CS', 'nsu', 'autumn2017'),
+('1700242', 'BC CS', 'nsu', 'autumn2017'),
+('1700243', 'BC CS', 'nsu', 'autumn2017'),
+('1700244', 'BC CS', 'nsu', 'autumn2017'),
+('1700245', 'BC CS', 'nsu', 'autumn2017'),
+('1700246', 'BC CS', 'nsu', 'autumn2017'),
+('1700247', 'BC CS', 'nsu', 'autumn2017'),
+('1700248', 'BC CS', 'nsu', 'autumn2017'),
+('1700249', 'BC CS', 'nsu', 'autumn2017'),
+('1700250', 'BC CS', 'nsu', 'autumn2017'),
+('1700251', 'BC CS', 'nsu', 'autumn2017'),
+('1700252', 'BC CS', 'nsu', 'autumn2017'),
+('1700253', 'BC CS', 'nsu', 'autumn2017'),
+('1700254', 'BC CS', 'nsu', 'autumn2017'),
+('1700255', 'BC CS', 'nsu', 'autumn2017'),
+('1700256', 'BC CS', 'nsu', 'autumn2017'),
+('1700257', 'BC CS', 'nsu', 'autumn2017'),
+('1700258', 'BC CS', 'nsu', 'autumn2017'),
+('1700259', 'BC CS', 'nsu', 'autumn2017'),
+('1700260', 'BC CS', 'nsu', 'autumn2017'),
+('1700261', 'BC CS', 'nsu', 'autumn2017'),
+('1700262', 'BC CS', 'nsu', 'autumn2017'),
+('1700263', 'BC CS', 'nsu', 'autumn2017'),
+('1700264', 'BC CS', 'nsu', 'autumn2017'),
+('1700265', 'BC CS', 'nsu', 'autumn2017'),
+('1700266', 'BC CS', 'nsu', 'autumn2017'),
+('1700267', 'BC CS', 'nsu', 'autumn2017'),
+('1700268', 'BC CS', 'nsu', 'autumn2017'),
+('1700269', 'BC CS', 'nsu', 'autumn2017'),
+('1700270', 'BC CS', 'nsu', 'autumn2017'),
+('1700271', 'BC CS', 'nsu', 'autumn2017'),
+('1700272', 'BC CS', 'nsu', 'autumn2017'),
+('1700273', 'BC CS', 'nsu', 'autumn2017'),
+('1700274', 'BC CS', 'nsu', 'autumn2017'),
+('1700275', 'BC CS', 'nsu', 'autumn2017'),
+('1700276', 'BC CS', 'nsu', 'autumn2017'),
+('1700277', 'BC CS', 'nsu', 'autumn2017'),
+('1700278', 'BC CS', 'nsu', 'autumn2017'),
+('1700279', 'BC CS', 'nsu', 'autumn2017'),
+('1700280', 'BC CS', 'nsu', 'autumn2017'),
+('1700281', 'BC CS', 'nsu', 'autumn2017'),
+('1700282', 'BC CS', 'nsu', 'autumn2017'),
+('1700283', 'BC CS', 'nsu', 'autumn2017'),
+('1700284', 'BC CS', 'nsu', 'autumn2017'),
+('1700285', 'BC CS', 'nsu', 'autumn2017'),
+('1700286', 'BC CS', 'nsu', 'autumn2017'),
+('1700287', 'BC CS', 'nsu', 'autumn2017'),
+('1700288', 'BC CS', 'nsu', 'autumn2017'),
+('1700289', 'BC CS', 'nsu', 'autumn2017'),
+('1700290', 'BC CS', 'nsu', 'autumn2017'),
+('1700291', 'BC CS', 'nsu', 'autumn2017'),
+('1700292', 'BC CS', 'nsu', 'autumn2017'),
+('1700293', 'BC CS', 'nsu', 'autumn2017'),
+('1700294', 'BC CS', 'nsu', 'autumn2017'),
+('1700295', 'BC CS', 'nsu', 'autumn2017'),
+('1700296', 'BC CS', 'nsu', 'autumn2017'),
+('1700297', 'BC CS', 'nsu', 'autumn2017'),
+('1700298', 'BC CS', 'nsu', 'autumn2017'),
+('1700299', 'BC CS', 'nsu', 'autumn2017'),
+('1700300', 'BC CS', 'nsu', 'autumn2017'),
+('1700301', 'BC CS', 'nsu', 'autumn2017'),
+('1700302', 'BC CS', 'nsu', 'autumn2017'),
+('1700303', 'BC CS', 'nsu', 'autumn2017'),
+('1700304', 'BC CS', 'nsu', 'autumn2017'),
+('1700305', 'BC CS', 'nsu', 'autumn2017'),
+('1700306', 'BC CS', 'nsu', 'autumn2017'),
+('1700307', 'BC CS', 'nsu', 'autumn2017'),
+('1700308', 'BC CS', 'nsu', 'autumn2017'),
+('1700309', 'BC CS', 'nsu', 'autumn2017'),
+('1700310', 'BC CS', 'nsu', 'autumn2017'),
+('1700311', 'BC CS', 'nsu', 'autumn2017'),
+('1700312', 'BC CS', 'nsu', 'autumn2017'),
+('1700313', 'BC CS', 'nsu', 'autumn2017'),
+('1700314', 'BC CS', 'nsu', 'autumn2017'),
+('1700315', 'BC CS', 'nsu', 'autumn2017'),
+('1700316', 'BC CS', 'nsu', 'autumn2017'),
+('1700317', 'BC CS', 'nsu', 'autumn2017'),
+('1700318', 'BC CS', 'nsu', 'autumn2017'),
+('1700319', 'BC CS', 'nsu', 'autumn2017'),
+('1700320', 'BC CS', 'nsu', 'autumn2017'),
+('1700321', 'BC CS', 'nsu', 'autumn2017'),
+('1700322', 'BC CS', 'nsu', 'autumn2017'),
+('1700323', 'BC CS', 'nsu', 'autumn2017'),
+('1700324', 'BC CS', 'nsu', 'autumn2017'),
+('1700325', 'BC CS', 'nsu', 'autumn2017'),
+('1700326', 'BC CS', 'nsu', 'autumn2017'),
+('1700327', 'BC CS', 'nsu', 'autumn2017'),
+('1700328', 'BC CS', 'nsu', 'autumn2017'),
+('1700329', 'BC CS', 'nsu', 'autumn2017'),
+('1700330', 'BC CS', 'nsu', 'autumn2017'),
+('1700331', 'BC CS', 'nsu', 'autumn2017'),
+('1700332', 'BC CS', 'nsu', 'autumn2017'),
+('1700333', 'BC CS', 'nsu', 'autumn2017'),
+('1700334', 'BC CS', 'nsu', 'autumn2017'),
+('1700335', 'BC CS', 'nsu', 'autumn2017'),
+('1700336', 'BC CS', 'nsu', 'autumn2017'),
+('1700337', 'BC CS', 'nsu', 'autumn2017'),
+('1700338', 'BC CS', 'nsu', 'autumn2017'),
+('1700339', 'BC CS', 'nsu', 'autumn2017'),
+('1700340', 'BC CS', 'nsu', 'autumn2017'),
+('1700341', 'BC CS', 'nsu', 'autumn2017'),
+('1700342', 'BS Civil', 'nsu', 'autumn2017'),
+('1700343', 'BS Civil', 'nsu', 'autumn2017'),
+('1700344', 'BS Civil', 'nsu', 'autumn2017'),
+('1700345', 'BS Civil', 'nsu', 'autumn2017'),
+('1700346', 'BS Civil', 'nsu', 'autumn2017'),
+('1700347', 'BS Civil', 'nsu', 'autumn2017'),
+('1700348', 'BS Civil', 'nsu', 'autumn2017'),
+('1700349', 'BS Civil', 'nsu', 'autumn2017'),
+('1700350', 'BS Civil', 'nsu', 'autumn2017'),
+('1700351', 'BS Civil', 'nsu', 'autumn2017'),
+('1700352', 'BS Civil', 'nsu', 'autumn2017'),
+('1700353', 'BS Civil', 'nsu', 'autumn2017'),
+('1700354', 'BS Civil', 'nsu', 'autumn2017'),
+('1700355', 'BS Civil', 'nsu', 'autumn2017'),
+('1700356', 'BS Civil', 'nsu', 'autumn2017'),
+('1700357', 'BS Civil', 'nsu', 'autumn2017'),
+('1700358', 'BS Civil', 'nsu', 'autumn2017'),
+('1700359', 'BS Civil', 'nsu', 'autumn2017'),
+('1700360', 'BS Civil', 'nsu', 'autumn2017'),
+('1700361', 'BS Civil', 'nsu', 'autumn2017'),
+('1700362', 'BS Civil', 'nsu', 'autumn2017'),
+('1700363', 'BS Civil', 'nsu', 'autumn2017'),
+('1700364', 'BS Civil', 'nsu', 'autumn2017'),
+('1700365', 'BS Civil', 'nsu', 'autumn2017'),
+('1700366', 'BS Civil', 'nsu', 'autumn2017'),
+('1700367', 'BS Civil', 'nsu', 'autumn2017'),
+('1700368', 'BS Civil', 'nsu', 'autumn2017'),
+('1700369', 'BS Civil', 'nsu', 'autumn2017'),
+('1700370', 'BS Civil', 'nsu', 'autumn2017'),
+('1700371', 'BS Civil', 'nsu', 'autumn2017'),
+('1700372', 'BS Civil', 'nsu', 'autumn2017'),
+('1700373', 'BS Civil', 'nsu', 'autumn2017'),
+('1700374', 'BS Civil', 'nsu', 'autumn2017'),
+('1700375', 'BS Civil', 'nsu', 'autumn2017'),
+('1700376', 'BS Civil', 'nsu', 'autumn2017'),
+('1700377', 'BS Civil', 'nsu', 'autumn2017'),
+('1700378', 'BS Civil', 'nsu', 'autumn2017'),
+('1700379', 'BS Civil', 'nsu', 'autumn2017'),
+('1700380', 'BS Civil', 'nsu', 'autumn2017'),
+('1700381', 'BS Civil', 'nsu', 'autumn2017'),
+('1700382', 'BS Civil', 'nsu', 'autumn2017'),
+('1700383', 'BS Civil', 'nsu', 'autumn2017'),
+('1700384', 'BS Civil', 'nsu', 'autumn2017'),
+('1700385', 'BS Civil', 'nsu', 'autumn2017'),
+('1700386', 'BS Civil', 'nsu', 'autumn2017'),
+('1700387', 'BS Civil', 'nsu', 'autumn2017'),
+('1700388', 'BS Civil', 'nsu', 'autumn2017'),
+('1700389', 'BS Civil', 'nsu', 'autumn2017'),
+('1700390', 'BS Civil', 'nsu', 'autumn2017'),
+('1700391', 'BS Civil', 'nsu', 'autumn2017'),
+('1700392', 'BS Civil', 'nsu', 'autumn2017'),
+('1700393', 'BS Civil', 'nsu', 'autumn2017'),
+('1700394', 'BS Civil', 'nsu', 'autumn2017'),
+('1700395', 'BS Civil', 'nsu', 'autumn2017'),
+('1700396', 'BS Civil', 'nsu', 'autumn2017'),
+('1700397', 'BS Civil', 'nsu', 'autumn2017'),
+('1700398', 'BS Civil', 'nsu', 'autumn2017'),
+('1700399', 'BS Civil', 'nsu', 'autumn2017'),
+('1700400', 'BS Civil', 'nsu', 'autumn2017'),
+('1700401', 'BS Civil', 'nsu', 'autumn2017'),
+('1700402', 'BS Civil', 'nsu', 'autumn2017'),
+('1700403', 'BS Civil', 'nsu', 'autumn2017'),
+('1700404', 'BS Civil', 'nsu', 'autumn2017'),
+('1700405', 'BS Civil', 'nsu', 'autumn2017'),
+('1700406', 'BS Civil', 'nsu', 'autumn2017'),
+('1700407', 'BS Civil', 'nsu', 'autumn2017'),
+('1700408', 'BS Civil', 'nsu', 'autumn2017'),
+('1700409', 'BS Civil', 'nsu', 'autumn2017'),
+('1700410', 'BS Civil', 'nsu', 'autumn2017'),
+('1700411', 'BS Civil', 'nsu', 'autumn2017'),
+('1700412', 'BS Civil', 'nsu', 'autumn2017'),
+('1700413', 'BS Civil', 'nsu', 'autumn2017'),
+('1700414', 'BS Civil', 'nsu', 'autumn2017'),
+('1700415', 'BS Civil', 'nsu', 'autumn2017'),
+('1700416', 'BS Civil', 'nsu', 'autumn2017'),
+('1700417', 'BS Civil', 'nsu', 'autumn2017'),
+('1700418', 'BS Civil', 'nsu', 'autumn2017'),
+('1700419', 'BS Civil', 'nsu', 'autumn2017'),
+('1700420', 'BS Civil', 'nsu', 'autumn2017'),
+('1700421', 'BS Civil', 'nsu', 'autumn2017'),
+('1700422', 'BS Civil', 'nsu', 'autumn2017'),
+('1700423', 'BS Civil', 'nsu', 'autumn2017'),
+('1700424', 'BS Civil', 'nsu', 'autumn2017'),
+('1700425', 'BS Civil', 'nsu', 'autumn2017'),
+('1700426', 'BS Civil', 'nsu', 'autumn2017'),
+('1700427', 'BS Civil', 'nsu', 'autumn2017'),
+('1700428', 'BS Mic', 'nsu', 'autumn2017'),
+('1700429', 'BS Mic', 'nsu', 'autumn2017'),
+('1700430', 'BS Mic', 'nsu', 'autumn2017'),
+('1700431', 'BS Mic', 'nsu', 'autumn2017'),
+('1700432', 'BS Mic', 'nsu', 'autumn2017'),
+('1700433', 'BS Mic', 'nsu', 'autumn2017'),
+('1700434', 'BS Mic', 'nsu', 'autumn2017'),
+('1700435', 'BS Mic', 'nsu', 'autumn2017'),
+('1700436', 'BS Mic', 'nsu', 'autumn2017'),
+('1700437', 'BS Mic', 'nsu', 'autumn2017'),
+('1700438', 'BS Mic', 'nsu', 'autumn2017'),
+('1700439', 'BS Mic', 'nsu', 'autumn2017'),
+('1700440', 'BS Mic', 'nsu', 'autumn2017'),
+('1700441', 'BS Mic', 'nsu', 'autumn2017'),
+('1700442', 'BS Mic', 'nsu', 'autumn2017'),
+('1700443', 'BS Mic', 'nsu', 'autumn2017'),
+('1700444', 'BS Mic', 'nsu', 'autumn2017'),
+('1700445', 'BS Mic', 'nsu', 'autumn2017'),
+('1700446', 'BS Mic', 'nsu', 'autumn2017'),
+('1700447', 'BS Mic', 'nsu', 'autumn2017'),
+('1700448', 'BS Mic', 'nsu', 'autumn2017'),
+('1700449', 'BS Mic', 'nsu', 'autumn2017'),
+('1700450', 'BS Mic', 'nsu', 'autumn2017'),
+('1700451', 'BS Mic', 'nsu', 'autumn2017'),
+('1700452', 'BS Mic', 'nsu', 'autumn2017'),
+('1700453', 'BS Mic', 'nsu', 'autumn2017'),
+('1700454', 'BS Mic', 'nsu', 'autumn2017'),
+('1700455', 'BS Mic', 'nsu', 'autumn2017'),
+('1700456', 'BS Mic', 'nsu', 'autumn2017'),
+('1700457', 'BS Mic', 'nsu', 'autumn2017'),
+('1700458', 'BS Mic', 'nsu', 'autumn2017'),
+('1700459', 'BS Mic', 'nsu', 'autumn2017'),
+('1700460', 'BS Mic', 'nsu', 'autumn2017'),
+('1700461', 'BS Mic', 'nsu', 'autumn2017'),
+('1700462', 'BS Mic', 'nsu', 'autumn2017'),
+('1700463', 'BS Mic', 'nsu', 'autumn2017'),
+('1700464', 'BS Mic', 'nsu', 'autumn2017'),
+('1700465', 'BS Mic', 'nsu', 'autumn2017'),
+('1700466', 'BS Mic', 'nsu', 'autumn2017'),
+('1700467', 'BS Mic', 'nsu', 'autumn2017'),
+('1700468', 'BS Mic', 'nsu', 'autumn2017'),
+('1700469', 'BS Mic', 'nsu', 'autumn2017'),
+('1700470', 'BS Mic', 'nsu', 'autumn2017'),
+('1700471', 'BS Mic', 'nsu', 'autumn2017'),
+('1700472', 'BS Mic', 'nsu', 'autumn2017'),
+('1700473', 'BS Mic', 'nsu', 'autumn2017'),
+('1700474', 'BS Mic', 'nsu', 'autumn2017'),
+('1700475', 'BS Mic', 'nsu', 'autumn2017'),
+('1700476', 'BS Mic', 'nsu', 'autumn2017'),
+('1700477', 'BS Mic', 'nsu', 'autumn2017'),
+('1700478', 'BS Mic', 'nsu', 'autumn2017'),
+('1700479', 'LLB', 'nsu', 'autumn2017'),
+('1700480', 'LLB', 'nsu', 'autumn2017'),
+('1700481', 'LLB', 'nsu', 'autumn2017'),
+('1700482', 'LLB', 'nsu', 'autumn2017'),
+('1700483', 'LLB', 'nsu', 'autumn2017'),
+('1700484', 'LLB', 'nsu', 'autumn2017'),
+('1700485', 'LLB', 'nsu', 'autumn2017'),
+('1700486', 'LLB', 'nsu', 'autumn2017'),
+('1700487', 'LLB', 'nsu', 'autumn2017'),
+('1700488', 'LLB', 'nsu', 'autumn2017'),
+('1700489', 'LLB', 'nsu', 'autumn2017'),
+('1700490', 'LLB', 'nsu', 'autumn2017'),
+('1700491', 'LLB', 'nsu', 'autumn2017'),
+('1700492', 'LLB', 'nsu', 'autumn2017'),
+('1700493', 'LLB', 'nsu', 'autumn2017'),
+('1700494', 'LLB', 'nsu', 'autumn2017'),
+('1700495', 'LLB', 'nsu', 'autumn2017'),
+('1700496', 'LLB', 'nsu', 'autumn2017'),
+('1700497', 'LLB', 'nsu', 'autumn2017'),
+('1700498', 'LLB', 'nsu', 'autumn2017'),
+('1700499', 'LLB', 'nsu', 'autumn2017'),
+('1700500', 'LLB', 'nsu', 'autumn2017'),
+('1700501', 'LLB', 'nsu', 'autumn2017'),
+('1700502', 'LLB', 'nsu', 'autumn2017'),
+('1700503', 'LLB', 'nsu', 'autumn2017'),
+('1700504', 'LLB', 'nsu', 'autumn2017'),
+('1700505', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700506', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700507', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700508', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700509', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700510', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700511', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700512', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700513', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700514', 'PHRM_PROF', 'nsu', 'autumn2017'),
+('1700515', 'PHRM_PROF', 'nsu', 'autumn2017'),
 ('2002', 'BS EEE', 'nsu', 'summer2018'),
 ('2003', 'BBA_FIN', 'nsu', 'summer2018'),
 ('2005', 'BS CSE', 'nsu', 'summer2018'),
@@ -893,7 +1398,8 @@ INSERT INTO `student` (`cstu_id`, `cmajor_id`, `cuni_id`, `cadmission_id`) VALUE
 ('3037', 'PHRM_PROF', 'nsu', 'summer2018'),
 ('3039', 'BS CSE', 'nsu', 'summer2018'),
 ('3040', 'BBA_FIN', 'nsu', 'summer2018'),
-('3042', 'PHRM_PROF', 'nsu', 'summer2018'),
+('3042', 'PHRM_PROF', 'nsu', 'summer2018');
+INSERT INTO `student` (`cstu_id`, `cmajor_id`, `cuni_id`, `cadmission_id`) VALUES
 ('3043', 'BBA General', 'nsu', 'summer2018'),
 ('3044', 'BS CSE', 'nsu', 'summer2018'),
 ('3045', 'BS CSE', 'nsu', 'summer2018'),
@@ -1440,8 +1946,7 @@ INSERT INTO `student` (`cstu_id`, `cmajor_id`, `cuni_id`, `cadmission_id`) VALUE
 ('3897', 'BS CSE', 'nsu', 'summer2018'),
 ('3898', 'BS CSE', 'nsu', 'summer2018'),
 ('3899', 'BBA_HRM', 'nsu', 'summer2018'),
-('3900', 'BS CSE', 'nsu', 'summer2018');
-INSERT INTO `student` (`cstu_id`, `cmajor_id`, `cuni_id`, `cadmission_id`) VALUES
+('3900', 'BS CSE', 'nsu', 'summer2018'),
 ('3902', 'BS ECO', 'nsu', 'summer2018'),
 ('3903', 'BS CSE', 'nsu', 'summer2018'),
 ('3904', 'PHRM_PROF', 'nsu', 'summer2018'),
@@ -1716,7 +2221,6 @@ INSERT INTO `student` (`cstu_id`, `cmajor_id`, `cuni_id`, `cadmission_id`) VALUE
 -- Table structure for table `university`
 --
 
-DROP TABLE IF EXISTS `university`;
 CREATE TABLE `university` (
   `cuni_id` varchar(255) NOT NULL,
   `cuni_name` varchar(255) DEFAULT NULL
@@ -1731,6 +2235,48 @@ INSERT INTO `university` (`cuni_id`, `cuni_name`) VALUES
 ('ewu', 'East West University'),
 ('iub', 'Independent University Bangladesh'),
 ('nsu', 'North South University');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `cuser_id` varchar(255) NOT NULL,
+  `cpsw_hash` varchar(255) NOT NULL,
+  `cuser_name` varchar(255) NOT NULL,
+  `cuser_group_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`cuser_id`, `cpsw_hash`, `cuser_name`, `cuser_group_id`) VALUES
+('fahim', 'cd9d379715cccc83fd8c8c2dc0730c6dd081bd35', 'Fahim Ferdous', 'admin'),
+('rafikhan', 'd3d0379126c1e5e0ba70ad6e5e53ff6aeab9f4fa', 'Rafi Khan', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_group`
+--
+
+CREATE TABLE `user_group` (
+  `cuser_group_id` varchar(255) NOT NULL,
+  `cuser_group_name` varchar(255) NOT NULL,
+  `cuser_group_module` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_group`
+--
+
+INSERT INTO `user_group` (`cuser_group_id`, `cuser_group_name`, `cuser_group_module`) VALUES
+('admin', 'Administrator', 'ALL'),
+('deo', 'Data Entry Operator', 'INSERT'),
+('fac', 'Faculty', 'VIEW');
 
 --
 -- Indexes for dumped tables
@@ -1782,6 +2328,19 @@ ALTER TABLE `university`
   ADD KEY `cuni_id` (`cuni_id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`cuser_id`),
+  ADD KEY `US1` (`cuser_group_id`);
+
+--
+-- Indexes for table `user_group`
+--
+ALTER TABLE `user_group`
+  ADD PRIMARY KEY (`cuser_group_id`);
+
+--
 -- Constraints for dumped tables
 --
 
@@ -1796,6 +2355,12 @@ ALTER TABLE `admission`
 --
 ALTER TABLE `student`
   ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`cadmission_id`) REFERENCES `admission` (`cadmission_id`);
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `US1` FOREIGN KEY (`cuser_group_id`) REFERENCES `user_group` (`cuser_group_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

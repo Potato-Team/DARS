@@ -38,27 +38,21 @@
         </script>
         <p>Semester: </p>
         <select id="semester" class="w3-padding" name="semester">
-          <option value="Summer">Summer</option>
-          <option value="Spring">Spring</option>
-          <option value="Autumn">Autumn</option>
-          <option value="Fall">Fall</option>
         </select>
 
         <p>Major: </p>
         <select id="major" class="w3-padding" name="major">
-          <option value="Summer">Summer</option>
-          <option value="Spring">Spring</option>
-          <option value="Autumn">Autumn</option>
-          <option value="Fall">Fall</option>
         </select>
 
         <p>Student ID: </p>
-        <input class="w3-container w3-padding" type="text" id="student" name="student">
-
+        <input class="w3-container w3-padding" type="text" id="student" name="student" size="12"> /
+        <input id="csv" type="file" accept=".csv">
       </form>
       <form class="w3-container w3-padding">
         <button class="w3-button w3-green" type="button" name="increment" onclick="clickincrement()">+</button>
-        <button class="w3-button w3-green" type="button" name="submit" onclick="addToTable()">Add</button>
+        <button class="w3-button w3-green" type="button" name="submit" onclick="addToTable()">Add</button> /
+        <button class="w3-button w3-green" type="button" id="loadfile" onclick="loadcsv()" >Load CSV File</button>
+        <br><br>
         <input class="w3-border" type="number" id="loop" style="width:50px" value=0>
         <button class="w3-button w3-green" type="button" name="submit" onclick="clearField()">Clear</button>
         <input type="checkbox" id="autoincrement"> Auto Increment

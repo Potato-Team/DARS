@@ -13,6 +13,16 @@ function getYearTo(){
   return document.getElementById('yearto').options[document.getElementById('yearto').selectedIndex].value;
 }
 
+function print_canvas(){
+  var canvas = document.getElementById('bar-chart');
+
+  var win1 = window.open();
+
+  win1.document.write("<br><img class=\"center\" src = '"+canvas.toDataURL('image/png',1.0)+"'/><style media=\"screen\">.center {display: block;margin-left: auto;margin-right: auto; width: 50%;}</style>");
+  win1.print();
+  win1.location.reload();
+}
+
 function retriveTableData(){
   $.ajax(
    { url: "./sql/retriveUniMajorWiseTable.php",
@@ -20,6 +30,8 @@ function retriveTableData(){
      dataType:"text",
      data: {university: getUniversity(), yearfrom: getYearFrom(), yearto: getYearTo(), school: getSchool()},
      success: function(data) {
+        document.getElementById("print").hidden = true;
+
         document.getElementById("canvas-container").hidden = false;
        document.getElementById('chart-container').innerHTML = "<table id=\"table\" class=\"w3-table w3-striped w3-bordered\" cellspacing=\"50\" align=\"left\"></table>";
        document.getElementById('table').innerHTML = data;
@@ -139,6 +151,7 @@ function loadChart(type, stacked, array){
 
  var title = "";
  document.getElementById("canvas-container").hidden = false;
+ document.getElementById("print").hidden = false;
   var myBarChart = new Chart(document.getElementById("bar-chart"), {
   type: type,
   data: {
@@ -219,6 +232,7 @@ function generatePie(){
         method: "GET",
         data: {university: getUniversity(), yearfrom: getYearFrom(), yearto: getYearTo(), school: getSchool()} ,
         success: function (data){
+            document.getElementById("print").hidden = true;
             loadPieChart('pie', false, JSON.parse(data));
           }
         })

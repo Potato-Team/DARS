@@ -9,7 +9,7 @@
     <div class="w3-panel w3-indigo w3-padding w3-card-4">
       <form class="w3-container w3-padding">
         <p>University: </p>
-        <select id="university" class="w3-padding" name="uni">
+        <select id="university" class="w3-padding" name="uni" onchange="updateYear()">
           <option value="">North South University</option>
           <option value="">Independent University Bangladesh</option>
           <option value="">Brac University</option>
@@ -17,7 +17,7 @@
         </select>
 
         <p>Year: </p>
-        <select id="year" class="w3-padding" name="yer">
+        <select id="year" class="w3-padding" name="yer" onchange="updateSemester()">
           <option value="2018">2018</option>
           <option value="2017">2017</option>
           <option value="2016">2016</option>

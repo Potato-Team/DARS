@@ -1,5 +1,5 @@
-// $(document).ready(generate);
-//$(document).ready(loadChart);
+
+
 function getUniversity(){
   return document.getElementById('university').options[document.getElementById('university').selectedIndex].value;
 }
@@ -8,6 +8,16 @@ function getYearFrom(){
 }
 function getYearTo(){
   return document.getElementById('yearto').options[document.getElementById('yearto').selectedIndex].value;
+}
+
+function print_canvas(){
+  var canvas = document.getElementById('bar-chart');
+
+  var win1 = window.open();
+
+  win1.document.write("<br><img class=\"center\" src = '"+canvas.toDataURL('image/png',1.0)+"'/><style media=\"screen\">.center {display: block;margin-left: auto;margin-right: auto; width: 50%;}</style>");
+  win1.print();
+  win1.location.reload();
 }
 
 function updateYears(){
@@ -36,7 +46,8 @@ function generateStackedArea(){
         method: "GET",
         data: {university: getUniversity(), yearfrom: getYearFrom(), yearto: getYearTo()} ,
         success: function (data){
-            console.log(JSON.parse(data));
+            document.getElementById("print").hidden = false;
+            //console.log(JSON.parse(data));
             loadChart('line', true, JSON.parse(data));
           }
         })
@@ -54,7 +65,8 @@ function generateGroupedBar(){
         method: "GET",
         data: {university: getUniversity(), yearfrom: getYearFrom(), yearto: getYearTo()} ,
         success: function (data){
-            console.log(JSON.parse(data));
+            document.getElementById("print").hidden = false;
+            //console.log(JSON.parse(data));
             loadChart('bar', false, JSON.parse(data));
           }
         })
@@ -181,7 +193,8 @@ function generatePie(){
         method: "GET",
         data: {university: getUniversity(), yearfrom: getYearFrom(), yearto: getYearTo()} ,
         success: function (data){
-            console.log(JSON.parse(data));
+            document.getElementById("print").hidden = true;
+            //console.log(JSON.parse(data));
             loadPieChart('pie', false, JSON.parse(data));
           }
         })

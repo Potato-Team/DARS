@@ -1,6 +1,17 @@
 // $(document).ready(generate);
 //$(document).ready(loadChart);
 
+
+function print_canvas(){
+  var canvas = document.getElementById('bar-chart');
+
+  var win1 = window.open();
+
+  win1.document.write("<br><img class=\"center\" src = '"+canvas.toDataURL('image/png',1.0)+"'/><style media=\"screen\">.center {display: block;margin-left: auto;margin-right: auto; width: 50%;}</style>");
+  win1.print();
+  win1.location.reload();
+}
+
 function updateYears(){
   var uni = document.getElementById('university').options[document.getElementById('university').selectedIndex].value;
   $.ajax({
@@ -48,6 +59,7 @@ function generate(){
 function loadChart( data, label){
    var title = "Year Wise Student Distrubution";
    document.getElementById("canvas-container").hidden = false;
+   document.getElementById("print").hidden = false;
   var myBarChart = new Chart(document.getElementById("bar-chart"), {
   type: 'line',
   data: {

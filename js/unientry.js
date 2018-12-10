@@ -32,16 +32,60 @@ function increment(){
   }
 }
 
+
 function addToTable(){
   var loop = document.getElementById('loop');
-  if(loop.value > 1){
-    for (var i = 0; i < loop.value; i++) {
+  var fieldcheck=false;
+
+  if(document.getElementById('year').value==""){
+      var fieldcheck=true;
+  }else if (document.getElementById('semester').selectedIndex < 0) {
+      var fieldcheck=true;
+  }else if (document.getElementById('major').selectedIndex < 0) {
+      var fieldcheck=true;
+  }
+
+  if (fieldcheck) {
+    alert("Make Sure The Fields are Entered Correct");
+  }
+  else if(loop.value > 1){
+    for (var j = 0; j < loop.value; j++){
         addto();
     }
   }else{
     addto();
   }
+
   reloadTable();
+}
+
+function loadcsv(){
+  var uni = document.getElementById('university').options[document.getElementById('university').selectedIndex].value;
+  var year = document.getElementById('year').value;
+  var sem = document.getElementById('semester').options[document.getElementById('semester').selectedIndex].value;
+  var csv = document.getElementById('csv').files[0];
+  $.ajax({
+    url: URL.createObjectURL(csv),
+    dataType: "text",
+    success: function(data){
+      document.getElementById('table-container').hidden = false;
+      var dump = data.split(/\r?\n|\r/);
+      var table = "";
+      for (var i = 1; i < dump.length-1; i++) {
+        var cell = dump[i].split(",");
+        table += "<tr class=\"item\" id=\""+crow+"\">\n"
+        table += "<td><input type=\"checkbox\" value="+crow+"></td>\n";
+        table += "<td>"+uni+"</td>";
+        table += "<td>"+year+"</td>";
+        table += "<td>"+sem+"</td>";
+        table += "<td>"+cell[1]+"</td>";
+        table += "<td>"+cell[0]+"</td>";
+        table += "</tr>\n";
+        crow++;
+      }
+      document.getElementById('table').innerHTML+=table;
+    }
+  });
 }
 
 function addto(){
@@ -53,20 +97,9 @@ function addto(){
     document.getElementById('student')
   ];
 
-  var fieldcheck=false;
-  if(document.getElementById('year').value==""){
-      var fieldcheck=true;
-  }else if (document.getElementById('semester').selectedIndex < 0) {
-      var fieldcheck=true;
-  }else if (document.getElementById('major').selectedIndex < 0) {
-      var fieldcheck=true;
-  }
-
   if(document.getElementById('student').value !=''){
     if(isNaN(document.getElementById('student').value)){
       alert("Make Sure Student ID is Correct");
-    }else if (fieldcheck) {
-      alert("Make Sure The Fields are Entered Correct");
     }else{
       document.getElementById('table-container').hidden = false;
       var table = document.getElementById('table');
